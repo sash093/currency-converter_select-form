@@ -1,0 +1,15 @@
+.body {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.paragraph {
+    text-align: center;
+    font-size: 20px;
+}
+
+.strong {
+    font-weight: 700;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Kalkulator walutowy</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+            integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/body.css" rel="stylesheet" />
+        <link href="css/form.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+        />
+        <script defer src="js/script.js"></script>
+    </head>
+    <body class="body">
+        <form class="form js-form">
+            <fieldset class="form__fieldset">
+                <legend class="form__legend">Kalkulator walutowy</legend>
+                <p class="form__paragraph">
+                    <label>
+                        <span class="form__labelText"> Wybierz walutę: </span>
+
+                        <select
+                            class="form__field js-selectCurrency"
+                            name="currency"
+                        >
+                            <option value="4.72" selected>EURO</option>
+                            <option value="4.48">USD</option>
+                        </select>
+                    </label>
+                </p>
+
+                <label for="currencyRate">
+                    <span class="form__labelText">
+                        Obecny kurs waluty w PLN:
+                    </span>
+                </label>
+                <input
+                    id="currencyRate"
+                    name="currencyRate"
+                    class="form__field js-currencyRate"
+                    value="4.72"
+                    readonly
+                />
+
+                <p class="form__paragraph">
+                    <label for="amount">
+                        <span class="form__labelText">
+                            Kwota PLN do przeliczenia*:
+                        </span>
+                    </label>
+                    <input
+                        id="amount"
+                        class="form__field js-amount"
+                        type="number"
+                        placeholder="wpisz kwotę"
+                        name="amount"
+                        step="any"
+                        autofocus
+                        required
+                    />
+                </p>
+                <p class="form__paragraph form__paragraph--emphasis">
+                    * Pola wymagane są oznaczone gwiazdką
+                </p>
+            </fieldset>
+
+            <p>
+                <button class="form__button">Przelicz wartość w walucie</button>
+            </p>
+        </form>
+        <p class="paragraph">
+            Kwota w wybranej walucie wynosi:
+            <strong class="strong js-result">N/A</strong>
+        </p>
+    </body>
+</html>
