@@ -1,22 +1,52 @@
-console.log("Hello!");
+{
+    const welcome = () => {
+        console.log("Welcome!");
+    };
 
-let formElement = document.querySelector(".js-form");
-let selectCurrencyElement = document.querySelector(".js-selectCurrency");
-let currencyRateElement = document.querySelector(".js-currencyRate");
-let amountElement = document.querySelector(".js-amount");
-let resultElement = document.querySelector(".js-result");
+    const selectCurrencyElement = document.querySelector(".js-selectCurrency");
 
-selectCurrencyElement.addEventListener("change", (event) => {
-    currencyRateElement.value = selectCurrencyElement.value;
-});
+    const onSelectCurrency = () => {
+        const currencyRateElement = document.querySelector(".js-currencyRate");
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+        currencyRateElement.value = selectCurrencyElement.value;
+    };
 
-    let currency = selectCurrencyElement.value;
-    let amount = amountElement.value;
+    const calculateResult = (amount, currency) => {
+        return amount / currency;
+    };
 
-    let result = amount / currency;
+    const updateResult = (result) => {
+        const resultElement = document.querySelector(".js-result");
 
-    resultElement.innerText = result.toFixed(2);
-});
+        resultElement.innerText = result.toFixed(2);
+    };
+
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const amountElement = document.querySelector(".js-amount");
+
+        const currency = selectCurrencyElement.value;
+        const amount = amountElement.value;
+
+        const result = calculateResult(amount, currency);
+
+        updateResult(result);
+    };
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
+
+        formElement.addEventListener("submit", onFormSubmit);
+    };
+
+    const selectCurrency = () => {
+        selectCurrencyElement.addEventListener("change", onSelectCurrency);
+    };
+
+    selectCurrency();
+
+    init();
+
+    welcome();
+}
